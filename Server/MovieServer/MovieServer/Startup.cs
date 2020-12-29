@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MovieServer.Infrastructure.Data;
+using Newtonsoft.Json.Serialization;
 
 namespace MovieServer
 {
@@ -31,6 +32,8 @@ namespace MovieServer
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")
                     ));
+            services.AddCors();
+            //services.AddAuthorization();
             services.AddControllers();
         }
 
@@ -42,11 +45,17 @@ namespace MovieServer
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            app.UseCors(builder => builder
+             .AllowAnyOrigin()
+             .AllowAnyMethod()
+             .AllowAnyHeader()
+             );
+
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

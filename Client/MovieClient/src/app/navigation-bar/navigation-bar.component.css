@@ -1,0 +1,57 @@
+nav {
+    width: 80%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 50px 0;
+    box-shadow: 0px 5px 0px #dedede;
+  }
+  nav div form {
+    text-align: center;
+  }
+
+  nav ul {
+    list-style: none;
+    text-align: center;
+  }
+  nav ul li {
+    display: inline-block;
+  }
+  nav ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: rgba(170, 170, 170, 0.514);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0 20px;
+    font-size: 20px;
+  }
+  nav ul li a,
+  nav ul li a:after,
+  nav ul li a:before {
+    transition: all .5s;
+  }
+  nav ul li a:hover {
+    color: #555;
+  }
+
+nav.navbar-nav ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+nav.navbar-nav ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+nav.navbar-nav ul li a:hover:after {
+    width: 100%;
+  }
