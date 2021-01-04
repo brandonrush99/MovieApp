@@ -22,9 +22,9 @@ namespace MovieServer.Controllers
 
         private static readonly HttpClient client = new HttpClient();
 
-        private const string api_key = "7243f281b3752af68d46db458c61b3d9";
+        //private const string api_key = "7243f281b3752af68d46db458c61b3d9";
 
-        private readonly Deserializer deserializer = new Deserializer();
+        //private readonly Deserializer deserializer = new Deserializer();
 
         public MovieController(ApplicationDbContext context)
         {
@@ -32,53 +32,49 @@ namespace MovieServer.Controllers
         }
 
         // GET: api/Movie/search/movieName
-        [HttpGet("search/{movieName}")]
-        public async Task<string> SearchMovie(string movieName)
-        {
-            var popularJson = await deserializer.SearchMovie(movieName);
-            dynamic jsonConverted = JsonConvert.DeserializeObject(popularJson);
-            int id = 1;
-            string title = jsonConverted.results[0].title;
-            string overview = jsonConverted.results[0].overview;
-            Movie movie = new Movie();
-            movie.Id = id;
-            movie.Title = title;
-            movie.Overview = overview;
-            //string movieObject = "{ \"id\":1, \"title\":" + title + ", \"overview\":" + overview +"}";
-            var movieJson = JsonConvert.SerializeObject(movie);
-            return movieJson;
-            //seriesCollection = JsonConvert.DeserializeObject<ObservableCollection<SeriesModel>>(popularJson);
-        }
+        //[HttpGet("search/{movieName}")]
+        //public async Task<string> SearchMovie(string movieName)
+        //{
+        //    var popularJson = await deserializer.SearchMovie(movieName);
+        //    dynamic jsonConverted = JsonConvert.DeserializeObject(popularJson);
+        //    int id = jsonConverted.results[0].id;
+        //    string title = jsonConverted.results[0].title;
+        //    string overview = jsonConverted.results[0].overview;
+        //    string poster_path = jsonConverted.results[0].poster_path;
+        //    Movie movie = new Movie();
+        //    movie.Id = id;
+        //    movie.Title = title;
+        //    movie.Overview = overview;
+        //    movie.Poster_Path = poster_path;
+        //    //string movieObject = "{ \"id\":1, \"title\":" + title + ", \"overview\":" + overview +"}";
+        //    var movieJson = JsonConvert.SerializeObject(movie);
+        //    return movieJson;
+        //    //seriesCollection = JsonConvert.DeserializeObject<ObservableCollection<SeriesModel>>(popularJson);
+        //}
 
         // GET: api/Movie/5
         [HttpGet("{id}")]
-        //public async Task<ActionResult<Movie>> GetMovie(int id)
-        public string GetMovie(int id)
+        public async Task<ActionResult<Movie>> GetMovie(int id)
         {
-            //var movie = await _context.Movie.FindAsync(id);
+            var movie = await _context.Movie.FindAsync(id);
 
-            //if (movie == null)
-            //{
-            //    return NotFound();
-            //}
+            if (movie == null)
+            {
+                return NotFound();
+            }
 
-            //return movie;
-            return "Hello " + id;
-        }
-        [HttpGet("string/{s}")]
-        public string GetMovie(string s)
-        {
-            //var movie = await _context.Movie.FindAsync(id);
-
-            //if (movie == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //return movie;
-            return "Hello " + s;
+            return movie;
         }
 
+        // GET: api/Movie/all
+        [HttpGet("all")]
+        public async Task<ActionResult<List<Movie>>> GetMovies()
+        {
+            var movies = _context.Movie.ToList(); 
+
+            return movies;
+        }
+        
         // PUT: api/Movie/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.

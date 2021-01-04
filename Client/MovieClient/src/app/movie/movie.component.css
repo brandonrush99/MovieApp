@@ -1,0 +1,33 @@
+.moviePoster{
+    border-radius: 5%;
+    float: left;
+    margin: 25px;
+}
+
+
+.title{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 100px;
+    
+}
+
+.overview{
+    color: white;
+    font-size:x-large;
+    align-content: right;
+}
+button{
+    background-color: transparent;
+    color: green;
+}
+
+button:hover{
+    color: darkgreen;
+}
+
+h3{
+    color: white;
+    text-decoration: underline;
+}

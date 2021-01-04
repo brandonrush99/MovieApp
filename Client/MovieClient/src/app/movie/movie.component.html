@@ -1,1 +1,9 @@
-
+<div class="display" *ngIf="this.movieService.searchResult.Title">
+    <img class="moviePoster "src={{this.movieService.getImageUrl(this.imageSize,this.movieService.searchResult.Poster_Path)}} alt="PosterImage">
+    <h2 class="title">{{this.movieService.searchResult.Title}}</h2>
+    <h3>Overview</h3>
+    <p class="overview">{{this.movieService.searchResult.Overview}}</p>
+    <button type="button" class="btn btn-default btn-lg" title="Add movie to your favorites" (click)="addMovieToFavorites()">
+        <fa-icon [icon]="faPlusSquare" size="2x"></fa-icon>
+    </button>
+</div>

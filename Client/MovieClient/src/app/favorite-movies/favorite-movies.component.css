@@ -1,0 +1,28 @@
+
+h2{
+    color: white;
+}
+
+.title{
+    color: white;
+    font-size:x-large;
+    font-weight:bolder
+}
+
+.overview{
+    color: white;
+    font-size: large;
+}
+
+.image{
+    border-radius: 5%;
+}
+
+button{
+    color: grey;
+    background-color: transparent;
+}
+
+button:hover{
+    color: red;
+}

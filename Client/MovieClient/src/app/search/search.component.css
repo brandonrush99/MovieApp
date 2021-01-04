@@ -1,0 +1,18 @@
+.body{
+    background-color: powderblue;
+}
+
+.searchResult{
+    background-color: crimson;
+}
+
+.title{
+    text-align: center;
+    color: white;
+    align-content: center;
+}
+
+.overview{
+    color: white;
+    font-size: large;
+}

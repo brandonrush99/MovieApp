@@ -12,27 +12,22 @@ import { MovieService } from '../shared/movie.service';
 export class SearchComponent implements OnInit {
   public title:string;
   public overview:string;
-  public searchResult:Movie;
 
-  constructor(private movieService: MovieService, private route:Router) {
+  constructor(public movie:MovieComponent, private route:Router) {
   }
 
   ngOnInit(): void {
   }
 
   search(searchText:string){
-    debugger;
-    this.movieService.searchMovie(searchText).toPromise().then(
+    this.movie.movieService.searchMovie(searchText).toPromise().then(
       success => {
-        this.movieService.searchResult = success,
+        this.movie.movieService.searchResult = success,
         error => console.log(error)
       }
       
     );
     this.route.navigate(['/search']);
-    console.log(this.movieService.searchResult.Title);
-    console.log(this.movieService.searchResult.Overview);
-    debugger;
   }
 
 }

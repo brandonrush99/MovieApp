@@ -6,10 +6,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mx-auto">
         <li class="nav-item active">
-            <a class="nav-link " routerLink="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link " routerLink="/" (click)="topRated()">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" routerLink="/">Your Favorite Movies</a>
+            <a class="nav-link" routerLink="/favorite" (click)="favoriteMovies()">Your Favorite Movies</a>
         </li>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" [(ngModel)]='searchText' name = "search" placeholder="Search" aria-label="Search">
