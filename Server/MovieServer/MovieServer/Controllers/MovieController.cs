@@ -22,35 +22,10 @@ namespace MovieServer.Controllers
 
         private static readonly HttpClient client = new HttpClient();
 
-        //private const string api_key = "7243f281b3752af68d46db458c61b3d9";
-
-        //private readonly Deserializer deserializer = new Deserializer();
-
         public MovieController(ApplicationDbContext context)
         {
             _context = context;
         }
-
-        // GET: api/Movie/search/movieName
-        //[HttpGet("search/{movieName}")]
-        //public async Task<string> SearchMovie(string movieName)
-        //{
-        //    var popularJson = await deserializer.SearchMovie(movieName);
-        //    dynamic jsonConverted = JsonConvert.DeserializeObject(popularJson);
-        //    int id = jsonConverted.results[0].id;
-        //    string title = jsonConverted.results[0].title;
-        //    string overview = jsonConverted.results[0].overview;
-        //    string poster_path = jsonConverted.results[0].poster_path;
-        //    Movie movie = new Movie();
-        //    movie.Id = id;
-        //    movie.Title = title;
-        //    movie.Overview = overview;
-        //    movie.Poster_Path = poster_path;
-        //    //string movieObject = "{ \"id\":1, \"title\":" + title + ", \"overview\":" + overview +"}";
-        //    var movieJson = JsonConvert.SerializeObject(movie);
-        //    return movieJson;
-        //    //seriesCollection = JsonConvert.DeserializeObject<ObservableCollection<SeriesModel>>(popularJson);
-        //}
 
         // GET: api/Movie/5
         [HttpGet("{id}")]
