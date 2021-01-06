@@ -22,6 +22,7 @@ export class MovieService {
     this.searchResult.Title = "";
     this.searchResult.Overview = "";
     this.searchResult.Poster_Path = "";
+    this.searchResult.Backdrop_Path = "";
 
     this.favoriteMovies = [];
   }
@@ -42,6 +43,7 @@ export class MovieService {
       temp.Title = this.searchResult.Title;
       temp.Overview = this.searchResult.Overview;
       temp.Poster_Path = this.searchResult.Poster_Path;
+      temp.Backdrop_Path = this.searchResult.Backdrop_Path;
       return this.http.post(this.serverBaseURL, temp);
     }
     else
@@ -65,8 +67,14 @@ export class MovieService {
     );
   }
 
-  getImageUrl(imageSize:string, poster_path:string){
+  getImageUrl(imageSize:string, poster_path:string, displayBackgroundImage:boolean, backdrop_path:string){
+    if (displayBackgroundImage){
+      document.getElementById("display").style.backgroundImage = 'url(' + this.getBackdropUrl(backdrop_path) + ')';
+    }
     return this.imageBaseURL + imageSize + poster_path;
+  }
+  getBackdropUrl(backdrop_path:string){
+    return this.imageBaseURL + "/w1280" + backdrop_path;
   }
 
   

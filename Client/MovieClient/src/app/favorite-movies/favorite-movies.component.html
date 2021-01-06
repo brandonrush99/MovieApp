@@ -1,15 +1,18 @@
-<h2>Your Favorite Movies</h2>
-<table class="table table-hover">
-    <tr *ngFor="let movie of this.movieService.favoriteMovies">
-        <td class="image"><img src={{this.movieService.getImageUrl(this.imageSize,movie.Poster_Path)}} alt="image"></td>
-        <td class="title">
-            <a role="button" (click)="switchToMovie(movie)">{{movie.Title}}</a>
-        </td>
-        <td class="overview">{{movie.Overview}}</td>
-        <td>
-            <button type="button" class="btn btn-default btn-lg" title="Remove movie from your favorites" (click)="removeMovieFromFavorites(movie.Id)">
-                <fa-icon [icon]="faTrash" size="25px"></fa-icon>
-            </button>            
-        </td>
-    </tr>
-</table>
+<div class="everything">
+    <h2>Your Favorite Movies</h2>
+    <table class="table table-hover">
+        <tr *ngFor="let movie of this.movieService.favoriteMovies">
+            <td class="image"><img src={{this.movieService.getImageUrl(this.imageSize,movie.Poster_Path,false,movie.Backdrop_Path)}} alt="image"></td>
+            <td class="title">
+                <a role="button" (click)="switchToMovie(movie)">{{movie.Title}}</a>
+            </td>
+            <td class="overview">{{movie.Overview}}</td>
+            <td>
+                <button type="button" class="btn btn-default btn-lg" title="Remove movie from your favorites" (click)="removeMovieFromFavorites(movie.Id)">
+                    <fa-icon [icon]="faTrash" size="25px"></fa-icon>
+                </button>            
+            </td>
+        </tr>
+    </table>  
+</div>
+

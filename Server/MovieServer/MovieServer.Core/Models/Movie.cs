@@ -10,6 +10,7 @@ namespace MovieServer.Core.Models
         public string Title { get; set; }
         public string Overview { get; set; }
         public string Poster_Path { get; set; }
+        public string Backdrop_Path { get; set; }
 
     }
 }

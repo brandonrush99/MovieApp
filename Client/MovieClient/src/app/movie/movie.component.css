@@ -1,7 +1,22 @@
+.display{
+    height: auto;
+    overflow: auto;
+    border-radius: 5%;
+}
+
+.text{
+    background-color: black;
+    opacity: .85;
+    height: 500px;
+}
+
 .moviePoster{
     border-radius: 5%;
     float: left;
     margin: 25px;
+    height: auto;
+    z-index: 1;
+    position: relative;
 }
 
 
@@ -10,6 +25,8 @@
     color: white;
     font-weight: bold;
     margin-bottom: 100px;
+    font-size: 40px;
+    
     
 }
 
